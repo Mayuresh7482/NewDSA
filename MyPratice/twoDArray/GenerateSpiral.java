@@ -4,9 +4,11 @@ import java.util.Scanner;
 
 public class GenerateSpiral {
     static void printArray(int[][] arr) {
-        for (int i = 0; i < arr.length; i++) { // rows
-            for (int j = 0; j < arr[i].length; j++) { // cols
-                System.out.print(arr[i][j] + " ");
+        for (int[] arr1 : arr) {
+            // rows
+            for (int j = 0; j < arr1.length; j++) {
+                // cols
+                System.out.print(arr1[j] + " ");
             }
             System.out.println();
         }
@@ -46,13 +48,13 @@ public class GenerateSpiral {
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.println("Enter number of rows for Matrix:");
+            int rows = sc.nextInt();
 
-        System.out.println("Enter number of rows for Matrix:");
-        int rows = sc.nextInt();
-
-        System.out.println("Spiral Generated Matrix:");
-        int[][] spiral = SpiralOrder(rows);
-        printArray(spiral);
+            System.out.println("Spiral Generated Matrix:");
+            int[][] spiral = SpiralOrder(rows);
+            printArray(spiral);
+        }
     }
 }

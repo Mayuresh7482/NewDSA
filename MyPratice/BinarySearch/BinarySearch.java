@@ -1,6 +1,6 @@
 public class BinarySearch {
 
-    static boolean BinarySearch(int a[], int target) {
+    static boolean binarySearch(int a[], int target) {
         int n = a.length;
         int start = 0, end = n - 1;
         while (start <= end) {
@@ -18,8 +18,8 @@ public class BinarySearch {
     public static void main(String[] args) {
         int arr[] = { 1, 2, 3, 4, 5, 6, 7 };
         int target = 0;
-        while(target!=10){
-            System.out.printf(" %d exists in array %b \n",target,BinarySearch(arr, target));
+        while (target != 10) {
+            System.out.printf(" %d exists in array %b \n", target, binarySearch(arr, target));
             target++;
         }
     }

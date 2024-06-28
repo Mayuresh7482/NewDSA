@@ -5,9 +5,11 @@ import java.util.Scanner;
 public class rotate {
 
     static void printArray(int[][] arr) {
-        for (int i = 0; i < arr.length; i++) { // rows
-            for (int j = 0; j < arr.length; j++) { // cols
-                System.out.print(arr[i][j] + " ");
+        for (int[] arr1 : arr) {
+            // rows
+            for (int j = 0; j < arr.length; j++) {
+                // cols
+                System.out.print(arr1[j] + " ");
             }
             System.out.println();
         }
@@ -24,7 +26,7 @@ public class rotate {
         }
     }
 
-    static void rotate(int[][] arr, int r) {
+    static void Rotate(int[][] arr, int r) {
         //Transpose
 
         transposeWithoutNewArray(r, r, arr);
@@ -49,27 +51,27 @@ public class rotate {
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.println("Enter no. rows for Matrix ");
+            int rows = sc.nextInt();
+            System.out.println("Enter no. columns for Matrix ");
+            int cols = sc.nextInt();
 
-        System.out.println("Enter no. rows for Matrix ");
-        int rows = sc.nextInt();
-        System.out.println("Enter no. columns for Matrix ");
-        int cols = sc.nextInt();
-
-        int[][] arr1 = new int[rows][cols];
-        System.out.println("Enter " + rows * cols + " elements for Matrix ");
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                arr1[i][j] = sc.nextInt();
+            int[][] arr1 = new int[rows][cols];
+            System.out.println("Enter " + rows * cols + " elements for Matrix ");
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    arr1[i][j] = sc.nextInt();
+                }
             }
+
+            System.out.println("Matrix  ");
+            printArray(arr1);
+
+            Rotate(arr1, rows);
+            System.out.println("Rotated Matrix ");
+
+            printArray(arr1);
         }
-
-        System.out.println("Matrix  ");
-        printArray(arr1);
-
-        rotate(arr1, rows);
-        System.out.println("Rotated Matrix ");
-
-        printArray(arr1);
     }
 }
