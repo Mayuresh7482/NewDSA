@@ -1,4 +1,4 @@
-package MyPratice.bubbleSort;
+package MyPratice.sort;
 
 public class BubbleSort {
 
