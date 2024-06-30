@@ -20,30 +20,30 @@ public class LastTermSumArray {
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        try (Scanner sc = new Scanner(System.in)) {
+            // Ask the user for the size of the array
+            System.out.println("Enter the number of elements in the array:");
+            int arraySize = sc.nextInt();
 
-        // Ask the user for the size of the array
-        System.out.println("Enter the number of elements in the array:");
-        int arraySize = sc.nextInt();
+            // Create an array based on the user's input
+            int[] arr = new int[arraySize];
 
-        // Create an array based on the user's input
-        int[] arr = new int[arraySize];
+            // Input each element of the array
+            System.out.println("Enter " + arraySize + " elements of the array:");
+            for (int i = 0; i < arraySize; i++) {
+                arr[i] = sc.nextInt();
+            }
+            // Print the original array
+            System.out.println("Original array:");
+            PrintArray(arr);
 
-        // Input each element of the array
-        System.out.println("Enter " + arraySize + " elements of the array:");
-        for (int i = 0; i < arraySize; i++) {
-            arr[i] = sc.nextInt();
+            // Calculate the prefix sum array
+            int[] prefixSumArray = makePrefixSumArray(arr);
+
+            // Print the prefix sum array
+            System.out.println("Prefix sum array:");
+            PrintArray(prefixSumArray);
         }
-        // Print the original array
-        System.out.println("Original array:");
-        PrintArray(arr);
-
-        // Calculate the prefix sum array
-        int[] prefixSumArray = makePrefixSumArray(arr);
-
-        // Print the prefix sum array
-        System.out.println("Prefix sum array:");
-        PrintArray(prefixSumArray);
 
        
     }

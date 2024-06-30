@@ -5,9 +5,11 @@ import java.util.Scanner;
 public class PascalsLaw {
 
     static void printArray(int[][] arr) {
-        for (int i = 0; i < arr.length; i++) { // rows
-            for (int j = 0; j < arr[i].length; j++) { // cols
-                System.out.print(arr[i][j] + " ");
+        for (int[] arr1 : arr) {
+            // rows
+            for (int j = 0; j < arr1.length; j++) {
+                // cols
+                System.out.print(arr1[j] + " ");
             }
             System.out.println();
         }
@@ -28,12 +30,12 @@ public class PascalsLaw {
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.println("Enter no. for Matrix ");
-        int n = sc.nextInt();
-        int[][] ans = pascals(n);
-        printArray(ans);
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.println("Enter no. for Matrix ");
+            int n = sc.nextInt();
+            int[][] ans = pascals(n);
+            printArray(ans);
+        }
 
     }
 }

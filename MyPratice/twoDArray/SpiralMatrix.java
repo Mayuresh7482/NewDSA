@@ -5,9 +5,11 @@ import java.util.Scanner;
 public class SpiralMatrix {
 
     static void printArray(int[][] arr) {
-        for (int i = 0; i < arr.length; i++) { // rows
-            for (int j = 0; j < arr[i].length; j++) { // cols
-                System.out.print(arr[i][j] + " ");
+        for (int[] arr1 : arr) {
+            // rows
+            for (int j = 0; j < arr1.length; j++) {
+                // cols
+                System.out.print(arr1[j] + " ");
             }
             System.out.println();
         }
@@ -45,25 +47,25 @@ public class SpiralMatrix {
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.println("Enter number of rows for Matrix:");
+            int rows = sc.nextInt();
+            System.out.println("Enter number of columns for Matrix:");
+            int cols = sc.nextInt();
 
-        System.out.println("Enter number of rows for Matrix:");
-        int rows = sc.nextInt();
-        System.out.println("Enter number of columns for Matrix:");
-        int cols = sc.nextInt();
-
-        int[][] arr1 = new int[rows][cols];
-        System.out.println("Enter " + rows * cols + " elements for Matrix:");
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                arr1[i][j] = sc.nextInt();
+            int[][] arr1 = new int[rows][cols];
+            System.out.println("Enter " + rows * cols + " elements for Matrix:");
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    arr1[i][j] = sc.nextInt();
+                }
             }
+
+            System.out.println("Matrix:");
+            printArray(arr1);
+
+            System.out.println("Spiral Matrix:");
+            SpiralOrder(arr1, rows, cols);
         }
-
-        System.out.println("Matrix:");
-        printArray(arr1);
-
-        System.out.println("Spiral Matrix:");
-        SpiralOrder(arr1, rows, cols);
     }
 }
